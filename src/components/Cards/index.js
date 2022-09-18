@@ -7,13 +7,14 @@ import { api } from "../../services/api";
 
 export default function Cards() {
 	const [characters, setCharacters] = useState([]);
-	const [page, setPage] = useState(1);
+	// const [page, setPage] = useState(1);
+	const page = 1;
 
 	useEffect(() => {
 		api.get(`/?page=${page}`).then((res) => {
 			setCharacters(res.data.results);
 		});
-	}, []);
+	}, [page]);
 
 	return (
 		<S.Container>
